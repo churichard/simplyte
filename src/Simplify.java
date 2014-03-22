@@ -22,7 +22,7 @@ class Simplify{
             }
             in.close();
         }catch(MalformedURLException e){
-        }catch(IOException e){}
+        }catch(IOException e){}}
 
         // STEP 2
         // Search text for difficult long words and if there is one, replace it
@@ -47,6 +47,7 @@ class Simplify{
 
     ArrayList<String> findSynonyms(String word){
         //Somehow, search the internet for the synonyms
+        return 0;
     }
 }
 }
