@@ -35,7 +35,7 @@ class Simplify{
 
     // Replaces the given difficult word with an easy synonym
     // Returns an easier word
-    String replace(String diffWord){
+    public static String replace(String diffWord){
         ArrayList<String> synonyms = new ArrayList<String>();
         // search for synonyms of the given difficult word
 
@@ -45,9 +45,8 @@ class Simplify{
         return easyWord;
     }
 
-    ArrayList<String> findSynonyms(String word){
+    public static ArrayList<String> findSynonyms(String word){
         //Somehow, search the internet for the synonyms
-        return 0;
+        return null;
     }
-}
 }
