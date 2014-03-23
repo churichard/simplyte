@@ -16,7 +16,7 @@
             "http://*/*",
             "https://*/*"
             ],
-        "js": ["popup.js"],
+        "js": ["jquery.js", "popup.js"],
         "run_at": "document_end"
         }
     ]
