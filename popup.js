@@ -7,13 +7,18 @@ function handleKeypress(){
 	if (event.keyCode == 84){
 		getSelectionHtml();
 		if (html != ""){
-			var site = "http://words.bighugelabs.com/api/2/e2b80f9b79a99670c738434e668ebc08/" + html + "/";
+			var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
 			$.get(
 				site,
 				function(data) {
-					var res = data.match(/\|.*?\n/) +"|"; 
-					syns = res.split("|")[2];
-					alert(syns);
+					var text = new XMLSerializer().serializeToString(data);
+					syns = text.match(/\<plaintext>.*\|/);
+					syns2 = " | " + text.slice(12, syns.length());
+					alert(syns2);
+					/*
+					synArray = syns.split(" | ");
+					alert(synArray[0]);
+					*/
 				}
 			);
 			html = "";
