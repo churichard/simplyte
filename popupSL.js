@@ -28,6 +28,7 @@ function synonym(html){
 
 function gradeWord(word){
     var site = "http://api.wordnik.com:80/v4/word.json/"+word+"/frequency?useCanonical=false&startYear=1960&endYear=2012&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+    var x;
     $.ajax({
         url: site,
         type: 'get',
@@ -38,9 +39,10 @@ function gradeWord(word){
             synArray = syns.split(":");
             var temp = synArray[1];
             synArray = temp.split("}");
-            return synArray[0];
+            x = parseInt(synArray[0]);
         }
     });
+    return x;
 }
 
 function getSelectionHtml() {
