@@ -10,10 +10,10 @@ function handleKeypress(){
 		//begin splitter
 		var words = html.split(" ");
 		console.log(words);
-		var newWords = words.slice(0);
+		var newWords = new Array();
 		
 		//round 2
-		
+		var temp' 
 		for (var i =0; i < words.length; ++i) {
 			if (words[i] != ""){
 				var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + words[i] + "&format=plaintext&includepodid=Synonyms:WordData";
@@ -24,12 +24,17 @@ function handleKeypress(){
 						var syns = text.match(/\<plaintext>.*\|/) + ">";
 						synArray = syns.split(">");
 						synArray = synArray[1].split(" ");
-						alert(synArray[0]);
+						newWords[i] =(synArray[0]);
 					}
 				);
 				html = "";
 			}
 		}
+		var newSentence = "";
+		for (var i = 0; i < newWords.length; ++i) {
+			newSentence = newSentence + newWords[i] + " ";
+		}
+		alert(newSentence);
 	}
 }
 
