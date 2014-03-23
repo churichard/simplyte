@@ -2,30 +2,28 @@ document.addEventListener('keydown', handleKeypress, false);
 var difficultWord = 6;
 
 function synonym(html){
-		if (html != ""){
-			var result = null;
-			var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
-			$.ajax({
-				url: site,
-				type: 'get',
-				dataType: 'xml',
-				async: false,
-				success: function (data) {
-					var word = html;
-					var text = new XMLSerializer().serializeToString(data);
-					var syns = text.match(/\<plaintext>.*\|/) + ">";
-					synArray = syns.split(">");
-					if (synArray[0] == "null"){
-						result = word;
-					}
-					else{
-						synArray = synArray[1].split(" ");
-						result = synArray[0];
-					}
-				}
-			});
-			return result;
+	var result = null;
+	var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
+	$.ajax({
+		url: site,
+		type: 'get',
+		dataType: 'xml',
+		async: false,
+		success: function (data) {
+			var word = html;
+			var text = new XMLSerializer().serializeToString(data);
+			var syns = text.match(/\<plaintext>.*\|/) + ">";
+			synArray = syns.split(">");
+			if (synArray[0] == "null"){
+				result = word;
+			}
+			else{
+				synArray = synArray[1].split(" ");
+				result = synArray[0];
+			}
 		}
+	});
+	return result;
 }
 
 function getSelectionHtml() {
@@ -46,8 +44,9 @@ function getSelectionHtml() {
 }
 
 function handleKeypress(){
-	if (event.keyCode == 84){
-		var words = getSelectionHtml().split(" ");
+	var selectedText = getSelectionHtml();
+	if (event.keyCode == 84 && selectedText != ""){
+		var words = selectedText.split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
 			if (words[i].length > difficultWord) {
