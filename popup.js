@@ -13,7 +13,7 @@ function handleKeypress(){
 				function(data) {
 					var text = new XMLSerializer().serializeToString(data);
 					var syns = text.match(/\<plaintext>.*\|/) + ">";
-					synArray = syns.split(">");
+					synArray = syns.split(">") + " ";
 					synArray = synArray[1].split(" ");
 					alert(synArray[0]);
 				}
