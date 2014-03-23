@@ -50,9 +50,7 @@ function handleKeypress(){
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
 			if (words[i].length > difficultWord) {
-			//if(synonym(words[i])!=undefined && synonym(words[i])!=""){
 				newWords[i]=synonym(words[i]);
-			//}
 			}
 			else newWords[i] = words[i];
 		}
@@ -61,6 +59,7 @@ function handleKeypress(){
 		for (var i = 0; i < newWords.length; i++) {
 			newSentence += newWords[i] + " ";
 		}
-		alert(newSentence);
+		var replaced = $("body").html().replace(selectedText,newSentence);
+		$("body").html(replaced);
 	}
 }
