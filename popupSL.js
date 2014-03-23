@@ -41,7 +41,7 @@ function getSelectionHtml() {
             return document.selection.createRange().htmlText;
         }
     }
-}
+}		
 
 function handleKeypress(){
 	var selectedText = getSelectionHtml();
@@ -49,7 +49,7 @@ function handleKeypress(){
 		var words = selectedText.split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
-			if (words[i].length > difficultWord) {
+			if (words[i].length > difficultWord /*see if word is in wordList*/) {
 				newWords[i]=synonym(words[i]);
 			}
 			else newWords[i] = words[i];
@@ -60,6 +60,8 @@ function handleKeypress(){
 			newSentence += newWords[i] + " ";
 		}
         var newSentence2 = newSentence.fontcolor("blue");
+		newSentence2 = newSentence2.fontsize(2.75);
+		newSentence2 = newSentence2.bold();
 		var replaced = $("body").html().replace(selectedText,newSentence2);
 		$("body").html(replaced);
 	}
