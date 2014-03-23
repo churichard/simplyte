@@ -64,7 +64,7 @@ function getSelectionHtml() {
 
 function handleKeypress(){
 	var selectedText = getSelectionHtml();
-	if (event.keyCode == 84 && selectedText != ""){
+	if (event.keyCode == 83 && selectedText != ""){
 		var words = selectedText.split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
