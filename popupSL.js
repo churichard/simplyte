@@ -59,7 +59,8 @@ function handleKeypress(){
 		for (var i = 0; i < newWords.length; i++) {
 			newSentence += newWords[i] + " ";
 		}
-		var replaced = $("body").html().replace(selectedText,newSentence);
+        var newSentence2 = newSentence.fontcolor("blue");
+		var replaced = $("body").html().replace(selectedText,newSentence2);
 		$("body").html(replaced);
 	}
 }
