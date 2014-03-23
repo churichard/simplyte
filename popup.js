@@ -11,14 +11,8 @@ function handleKeypress(){
 			$.get(
 				site,
 				function(data) {
-				    var re = /\|.*?/; 
-					var m;
-					while ((m = re.exec(data)) != null) {
-						if (m.index === regex.lastIndex) {
-							regex.lastIndex++;
-						}
-					}
-					alert(m[0]);
+					var res = data.match(/\|.*?\n/)
+					alert(res);
 				}
 			);
 			html = "";
