@@ -3,7 +3,7 @@ var difficultWord = 8;
 
 function synonym(html){
 	var result = null;
-	var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
+	var site = "http://api.wolframalpha.com/v2/query?appid=L4VRX2-UKYTXREEUL&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
 	$.ajax({
 		url: site,
 		type: 'get',
