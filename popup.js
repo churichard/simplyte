@@ -1,5 +1,5 @@
 var html = "";
-var syns= "";
+var synArray= "";
 
 document.addEventListener('keydown', handleKeypress, false);
 
@@ -12,9 +12,9 @@ function handleKeypress(){
 				site,
 				function(data) {
 					var text = new XMLSerializer().serializeToString(data);
-					syns = text.match(/\<plaintext>.*\|/) + ">";
-					var synArray = syns.split(">");
-					var synArray = synArray[1].split(" ");
+					var syns = text.match(/\<plaintext>.*\|/) + ">";
+					synArray = syns.split(">");
+					synArray = synArray[1].split(" ");
 					alert(synArray[0]);
 				}
 			);
