@@ -5,28 +5,9 @@ document.addEventListener('keydown', handleKeypress, false);
 
 function handleKeypress(){
 	if (event.keyCode == 84){
-		getSelectionHtml(); // the selected text gets saved as var html
-		/*var words = html.split(" ");
-		console.log(words);
-		var newWords = words.slice(0);
-		
-		//splitter
-		var period = -1;
-		var comma = -1;
-
-		for (var i =0; i < newWords.length; ++i) {
-			if (newWords[i] > difficultWordSize) {
-			period = newWords[i].indexOf(".");
-			comma = newWords[i].indexOf(",");
-			if (period >= 0) {
-				newWords[i] = newWords[i].slice(0,period);
-			}
-			if (comma >= 0) {
-				newWords[i] = newWords[i].slice(0,comma);
-			}
-		//Insert code that calls thesasurs and puts it into "function(data)"
-		//newWords[i] = data;*/
-				var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
+		getSelectionHtml();
+		if (html != ""){
+			var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
 			$.get(
 				site,
 				function(data) {
@@ -34,28 +15,13 @@ function handleKeypress(){
 					var syns = text.match(/\<plaintext>.*\|/) + ">";
 					synArray = syns.split(">");
 					synArray = synArray[1].split(" ");
-					newWords[i] = synArray[0];
+					alert(synArray[0]);
 				}
 			);
-		
-			if (period >= 0) {
-				newWords[i] = newWords[i] + ".";
-			}
-			if (comma>= 0) {
-				newWords[i] = newWords[i] + ",";
-			}		
-			comma = -1;
-			period = -1;
+			html = "";
+		}
 	}
 }
-
-}
-
-
-for (var i =0; i < newWords.length; ++i) {
-	document.write(newWords[i] + " ");
-}
-
 
 function getSelectionHtml() {
     if (typeof window.getSelection != "undefined") {
