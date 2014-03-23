@@ -37,17 +37,8 @@ function getSelectionHtml() {
 function handleKeypress(){
 	if (event.keyCode == 84){
 		var words = getSelectionHtml().split(" ");
-		//var newWords = new Array();
 		for (var i =0; i < words.length; ++i) {
 				alert(synonym(words[i]));
 			}
-		}
-		/*
-		var newSentence = "";
-		for (var i = 0; i < newWords.length; ++i) {
-			newSentence = newSentence + newWords[i] + " ";
-		}
-		alert(newSentence);
-		*/
-	}
+		}	
 }
