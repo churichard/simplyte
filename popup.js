@@ -11,7 +11,14 @@ function handleKeypress(){
 			$.get(
 				site,
 				function(data) {
-					alert(data);
+				    var re = /\|.*?/; 
+					var m;
+					while ((m = re.exec(data)) != null) {
+						if (m.index === regex.lastIndex) {
+							regex.lastIndex++;
+						}
+					}
+					alert(m[0]);
 				}
 			);
 			html = "";
