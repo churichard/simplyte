@@ -1,13 +1,18 @@
+var html = "";
+
 document.addEventListener('keydown', handleKeypress, false);
 
 function handleKeypress(){
 	if (event.keyCode == 84){
 		getSelectionHtml();
+		if (html != ""){
+			alert(html);
+			html = "";
+		}
 	}
 }
 
 function getSelectionHtml() {
-    var html = "";
     if (typeof window.getSelection != "undefined") {
         var sel = window.getSelection();
         if (sel.rangeCount) {
@@ -22,5 +27,4 @@ function getSelectionHtml() {
             html = document.selection.createRange().htmlText;
         }
     }
-    alert(html);
 }
