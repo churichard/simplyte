@@ -2,7 +2,7 @@
   "name": "Simplyte",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "A simple lightweight chrome extension.",
+  "description": "A simple lightweight Chrome extension.",
   "permissions": [
     "tabs","<all_urls>"
     ],
