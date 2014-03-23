@@ -1,4 +1,5 @@
 document.addEventListener('keydown', handleKeypress, false);
+var difficultWord = 6;
 
 function synonym(html){
 		if (html != ""){
@@ -49,9 +50,12 @@ function handleKeypress(){
 		var words = getSelectionHtml().split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
+			if (words[i].length > difficultWord) {
 			//if(synonym(words[i])!=undefined && synonym(words[i])!=""){
-			newWords[i]=synonym(words[i]);
+				newWords[i]=synonym(words[i]);
 			//}
+			}
+			else newWords[i] = words[i];
 		}
 
 		var newSentence = "";
