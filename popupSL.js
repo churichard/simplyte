@@ -1,5 +1,5 @@
 document.addEventListener('keydown', handleKeypress, false);
-var difficultWord = 6;
+var difficultWord = 8;
 
 function synonym(html){
 	var result = null;
@@ -65,11 +65,11 @@ function getSelectionHtml() {
 function handleKeypress(){
 	var selectedText = getSelectionHtml();
 	if (event.keyCode == 84 && selectedText != ""){
-        alert(gradeWord("hello"));
 		var words = selectedText.split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
-			if (words[i].length > difficultWord /*see if word is in wordList*/) {
+			if (words[i].length > difficultWord || gradeWord(words[i])<50) {
+                alert(gradeWord(words[i]));
 				newWords[i]=synonym(words[i]);
 			}
 			else newWords[i] = words[i];
