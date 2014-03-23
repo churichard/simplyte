@@ -6,14 +6,19 @@ function synonym(html){
 			$.get(
 				site,
 				function(data) {
+					var word = html;
 					var text = new XMLSerializer().serializeToString(data);
 					var syns = text.match(/\<plaintext>.*\|/) + ">";
 					synArray = syns.split(">");
-					synArray = synArray[1].split(" ");
-					alert(synArray[0]);
+					if (synArray[0] == "null"){
+						alert(word);
+					}
+					else{
+						synArray = synArray[1].split(" ");
+						alert(synArray[0]);
+					}
 				}
 			);
-			html = "";
 		}
 }
 
