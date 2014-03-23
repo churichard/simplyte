@@ -1,22 +1,34 @@
 var html = "";
 var synArray= "";
+var difficultWordSize = 3;
 
 document.addEventListener('keydown', handleKeypress, false);
 
 function handleKeypress(){
 	if (event.keyCode == 84){
-		getSelectionHtml();
+		getSelectionHtml(); //saves hilighted txt as var html
 		
-		//begin splitter
+		//splitter
 		var words = html.split(" ");
 		console.log(words);
+
 		var newWords = words.slice(0);
 		
-		//round 2
-		
-		for (var i =0; i < words.length; ++i) {
-			if (words[i] != ""){
-				var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + words[i] + "&format=plaintext&includepodid=Synonyms:WordData";
+		/*var period = -1;
+		var comma = -1;
+*//*
+		for (var i =0; i < newWords.length; ++i) {
+			if (newWords[i] > difficultWordSize) {
+			/*period = newWords[i].indexOf(".");
+			comma = newWords[i].indexOf(",");
+			if (period >= 0) {
+				newWords[i] = newWords[i].slice(0,period);
+			}
+			if (comma >= 0) {
+				newWords[i] = newWords[i].slice(0,comma);
+			}*/
+			if (newWords[i] != ""){
+				var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + newWords[i] + "&format=plaintext&includepodid=Synonyms:WordData";
 				$.get(
 					site,
 					function(data) {
@@ -25,12 +37,13 @@ function handleKeypress(){
 						synArray = syns.split(">");
 						synArray = synArray[1].split(" ");
 						alert(synArray[0]);
-					}
-				);
-				html = "";
-			}
+				}
+			);
+			html = "";
 		}
 	}
+}
+}
 }
 
 function getSelectionHtml() {

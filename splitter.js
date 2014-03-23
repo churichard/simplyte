@@ -26,7 +26,7 @@ var newWords = words.slice(0);
 
 var period = -1;
 var comma = -1;
-
+/*
 for (var i =0; i < newWords.length; ++i) {
 	if (newWords[i] > difficultWordSize) {
 		period = newWords[i].indexOf(".");
@@ -36,6 +36,7 @@ for (var i =0; i < newWords.length; ++i) {
 		}
 		if (comma >= 0) {
 			newWords[i] = newWords[i].slice(0,comma);
+		}
 		//Insert code that calls thesasurs and puts it into "function(data)"
 		//newWords[i] = data;
 		
@@ -50,7 +51,7 @@ for (var i =0; i < newWords.length; ++i) {
 	}
 }
 }
-
+*/
 
 for (var i =0; i < newWords.length; ++i) {
 	document.write(newWords[i] + " ");
