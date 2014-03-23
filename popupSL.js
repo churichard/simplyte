@@ -14,7 +14,7 @@ function synonym(html){
 			var text = new XMLSerializer().serializeToString(data);
 			var syns = text.match(/\<plaintext>.*\|/) + ">";
 			synArray = syns.split(">");
-			if (synArray[0] == "null"){
+			if (synArray[0] == "null" || synArray[0] == "Saturday"){
 				result = word;
 			}
 			else{
@@ -69,7 +69,6 @@ function handleKeypress(){
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
 			if (words[i].length > difficultWord || gradeWord(words[i])<50) {
-                alert(gradeWord(words[i]));
 				newWords[i]=synonym(words[i]);
 			}
 			else newWords[i] = words[i];
