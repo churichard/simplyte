@@ -1,13 +1,8 @@
-var wordReturned;
 document.addEventListener('keydown', handleKeypress, false);
 
 function synonym(html){
-<<<<<<< HEAD
 		if (html != ""){
 			var result = null;
-=======
-		if (html != "" && html!=" "){
->>>>>>> 9b1c37d187f26a197ea63c2998fdec351c593218
 			var site = "http://api.wolframalpha.com/v2/query?appid=J5UPVW-4RLV6H2X3E&input=synonym%20" + html + "&format=plaintext&includepodid=Synonyms:WordData";
 			$.ajax({
 				url: site,
@@ -52,24 +47,15 @@ function getSelectionHtml() {
 function handleKeypress(){
 	if (event.keyCode == 84){
 		var words = getSelectionHtml().split(" ");
-<<<<<<< HEAD
 		var newWords = new Array(words.length);
-		
+		alert(words);
 		for (var i =0; i < words.length; i++) {
 			//if(synonym(words[i])!=undefined && synonym(words[i])!=""){
-				newWords[i]=synonym(words[i]);
+			newWords[i]=synonym(words[i]);
 			//}
 		}
-		
-=======
-		var newWords = new Array();
-		for (var i =0; i < words.length; i++) {
-				if(synonym(words[i])!=undefined){
-					newWords[i]=synonym(words[i]);
-				}				
-			}
-		}
->>>>>>> 9b1c37d187f26a197ea63c2998fdec351c593218
+		alert(newWords);
+
 		var newSentence = "";
 		for (var i = 0; i < newWords.length; i++) {
 			newSentence += newWords[i] ;
