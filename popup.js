@@ -12,13 +12,10 @@ function handleKeypress(){
 				site,
 				function(data) {
 					var text = new XMLSerializer().serializeToString(data);
-					syns = text.match(/\<plaintext>.*\|/);
-					syns2 = " | " + text.slice(12, syns.length());
-					alert(syns2);
-					/*
-					synArray = syns.split(" | ");
+					syns = text.match(/\<plaintext>.*\|/) + ">";
+					var synArray = syns.split(">");
+					var synArray = synArray[1].split(" ");
 					alert(synArray[0]);
-					*/
 				}
 			);
 			html = "";
