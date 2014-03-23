@@ -17,7 +17,7 @@
             "https://*/*"
             ],
         "js": ["popup.js"],
-        "run_at": "document_end"         // pay attention to this line
+        "run_at": "document_end"
         }
     ]
 }
