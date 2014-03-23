@@ -6,13 +6,13 @@ function handleKeypress(){
 	if (event.keyCode == 84){
 		getSelectionHtml();
 		if (html != ""){
-			//alert(html);
 			var site = "http://words.bighugelabs.com/api/2/e2b80f9b79a99670c738434e668ebc08/" + html + "/";
 			$.get(
 				site,
 				function(data) {
-					var res = data.match(/\|.*?\n/)
-					alert(res);
+					var res = data.match(/\|.*?\n/) +"|"; 
+					var syne = res.split("|");
+					alert(syne[2]);
 				}
 			);
 			html = "";
