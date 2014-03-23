@@ -26,6 +26,23 @@ function synonym(html){
 	return result;
 }
 
+function gradeWord(word){
+    var site = "http://api.wordnik.com:80/v4/word.json/"+word+"/frequency?useCanonical=false&startYear=1960&endYear=2012&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+    $.ajax({
+        url: site,
+        type: 'get',
+        dataType: 'text',
+        async: false,
+        success: function (data) {
+            var syns = data.match(/"totalCount":.*\}/) + ":";
+            synArray = syns.split(":");
+            var temp = synArray[1];
+            synArray = temp.split("}");
+            return synArray[0];
+        }
+    });
+}
+
 function getSelectionHtml() {
     if (typeof window.getSelection != "undefined") {
         var sel = window.getSelection();
@@ -46,6 +63,7 @@ function getSelectionHtml() {
 function handleKeypress(){
 	var selectedText = getSelectionHtml();
 	if (event.keyCode == 84 && selectedText != ""){
+        alert(gradeWord("hello"));
 		var words = selectedText.split(" ");
 		var newWords = new Array(words.length);
 		for (var i =0; i < words.length; i++) {
