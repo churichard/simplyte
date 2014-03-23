@@ -28,11 +28,13 @@ function getSelectionHtml() {
             for (var i = 0, len = sel.rangeCount; i < len; ++i) {
                 container.appendChild(sel.getRangeAt(i).cloneContents());
             }
-            html = container.innerHTML;
+            selected = container.innerHTML;
+			html = selected.split(" ")[1];
         }
     } else if (typeof document.selection != "undefined") {
         if (document.selection.type == "Text") {
-            html = document.selection.createRange().htmlText;
+            selected = document.selection.createRange().htmlText;
+			html = selected.split(" ")[1];
         }
     }
 }
