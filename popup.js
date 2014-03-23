@@ -1,4 +1,5 @@
 var html = "";
+var syns= "";
 
 document.addEventListener('keydown', handleKeypress, false);
 
@@ -11,8 +12,8 @@ function handleKeypress(){
 				site,
 				function(data) {
 					var res = data.match(/\|.*?\n/) +"|"; 
-					var syns = res.split("|");
-					alert(syns[2]);
+					syns = res.split("|")[2];
+					alert(syns);
 				}
 			);
 			html = "";
