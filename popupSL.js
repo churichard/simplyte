@@ -37,13 +37,15 @@ function getSelectionHtml() {
 function handleKeypress(){
 	if (event.keyCode == 84){
 		var words = getSelectionHtml().split(" ");
-		var newWords = new Array();
-		for (var i =0; i < words.length; ++i) {
-				newWords[i]=synonym(words[i]);
+		for (var i =0; i < words.length; i++) {
+				if(synonym(words[i])!=undefined && synonym(words[i])!=""){
+					newWords[i]=synonym(words[i]);
+				}				
 			}
 		}
+		var newWords = new Array();
 		var newSentence = "";
-		for (var i = 0; i < newWords.length; ++i) {
+		for (var i = 0; i < newWords.length; i++) {
 			newSentence = newSentence + newWords[i] + " ";
 		}
 		alert(newSentence);
